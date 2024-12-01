@@ -1,0 +1,73 @@
+{
+  "Team Leader": {
+    "responsibilities": [
+      "Coordinate the team's actions and facilitate decision-making on the best Procedure to attempt each turn.",
+      "Guide discussions, ensure all viewpoints are considered, and summarize insights to lead the team toward consensus.",
+      "Maintain a strategic overview of the game progress and adapt to new information effectively."
+    ],
+    "description": "Acts as the central coordinator for the team, ensuring smooth collaboration and strategic decision-making."
+  },
+  "Team Member": {
+    "responsibilities": [
+      "Participate in discussions to analyze the scenario and contribute ideas for the most effective Procedure to use.",
+      "Support the team leader in achieving the group’s objectives and provide insights from your understanding of the situation."
+    ],
+    "description": "A generalist role contributing to discussions and supporting the team in executing strategies."
+  },
+  "Endpoint Security Expert": {
+    "responsibilities": [
+      "Analyze endpoints for malware, unauthorized access, or suspicious activities.",
+      "Recommend and advocate for endpoint-specific procedures such as Endpoint Security Protection Analysis and Endpoint Analysis.",
+      "Provide detailed insights into securing workstations and detecting endpoint-based attacks."
+    ],
+    "description": "Specializes in securing and analyzing endpoints, ensuring effective responses to endpoint-related threats."
+  },
+  "Network Traffic Analysis Expert": {
+    "responsibilities": [
+      "Examine network traffic logs to detect anomalies and malicious activity.",
+      "Recommend procedures like Network Threat Hunting and Firewall Log Review for monitoring and detecting threats.",
+      "Advocate for tools and strategies to enhance network visibility and security."
+    ],
+    "description": "Expert in analyzing network traffic and identifying threats through network-related indicators."
+  },
+  "Log and Behavioral Analysis Expert": {
+    "responsibilities": [
+      "Focus on analyzing logs to detect attack patterns and anomalous user behaviors.",
+      "Recommend procedures such as SIEM Log Analysis and User and Entity Behavior Analytics for log-based insights.",
+      "Identify and correlate patterns in data that might indicate lateral movement or exfiltration."
+    ],
+    "description": "Focuses on log analysis and user behavior to uncover signs of malicious activity."
+  },
+  "Deception and Containment Expert": {
+    "responsibilities": [
+      "Deploy deception technologies such as honeypots or honeytokens to mislead attackers.",
+      "Recommend containment strategies like Isolation to neutralize threats and minimize their impact.",
+      "Guide the team in using Cyber Deception effectively to protect high-value assets."
+    ],
+    "description": "Expert in deploying deception techniques and containment strategies to mitigate and disrupt threats."
+  },
+  "Incident Response Expert": {
+    "responsibilities": [
+      "Provide expertise on memory analysis and evidence gathering during active incidents.",
+      "Recommend procedures such as Memory Analysis and Crisis Management for effective incident handling.",
+      "Guide the team on post-detection actions to contain threats and minimize damage."
+    ],
+    "description": "Specialist in managing incident response and crisis scenarios to contain and mitigate threats."
+  },
+  "Expert": {
+    "responsibilities": [
+      "Provide advanced knowledge and strategies for identifying and countering cyber threats.",
+      "Collaborate with other defenders, especially Beginners, to guide the team and ensure effective decisions.",
+      "Take the lead on complex procedures and provide detailed analysis of their outcomes."
+    ],
+    "description": "Experienced defender with deep cybersecurity knowledge, focusing on advanced strategies and mentoring others."
+  },
+  "Beginner": {
+    "responsibilities": [
+      "Participate in discussions to learn about cybersecurity tactics and contribute by selecting straightforward procedures.",
+      "Seek guidance from Experts and actively engage to support the team’s objectives.",
+      "Learn and adapt quickly based on the team's decisions and the results of each turn."
+    ],
+    "description": "Learns the basics of cybersecurity while supporting the team with straightforward contributions."
+  }
+}
