@@ -18,8 +18,14 @@ jupyter notebook autobnb.ipynb
 
 ## Paper
 
-If you found this repository useful, please cite our [paper]() as follows:
+If you found this repository useful, please cite our [paper](https://arxiv.org/abs/2412.00652) as follows:
 ```bibtex
+@article{liu2024multi,
+  title={Multi-Agent Collaboration in Incident Response with Large Language Models},
+  author={Liu, Zefang},
+  journal={arXiv preprint arXiv:2412.00652},
+  year={2024}
+}
 ```
 
 ## License
