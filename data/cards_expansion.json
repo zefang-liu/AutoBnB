@@ -1,0 +1,1161 @@
+{
+  "title": "CoreV2.2 Plus Expansion",
+  "revdate": "04-24-2023",
+  "link": "https://www.antisyphontraining.com/",
+  "data": [
+    {
+      "name": "HTTP as Exfil",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-1-27.png",
+      "type": "c2",
+      "id": "001",
+      "details": "<a target=\"_blank\" href=\"https://www.thec2matrix.com/\">https://www.thec2matrix.com/</a>",
+      "description": "The attackers use HTTP as an exfil method. This is usually used in conjunction with some type of stego. For example, VSAgent uses base64 encoded__VIEWSTATE as an exfil field.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Metasploit Reverse HTTP Payloads\nC2 Matrix"
+    },
+    {
+      "name": "HTTPS as Exfil",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-1-28.png",
+      "type": "c2",
+      "id": "002",
+      "details": "<li><a target=\"_blank\" href=\"https://www.metasploit.com\">https://www.metasploit.com/</a></li><li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1573/\">https://attack.mitre.org/techniques/T1573/</a></li><li><a target=\"_blank\" href=\"https://github.com/byt3bl33d3r/SILENTTRINITY\">https://github.com/byt3bl33d3r/SILENTTRINITY</a></li>",
+      "description": "This is pretty basic: the attackers use HTTPS. Lots and lots of malware uses this. For example, Meterpreter has used this technique for a long time. It can be used in conjunction with other stego techniques.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Metasploit Reverse HTTPS Payloads\nSILENTTRINTY"
+    },
+    {
+      "name": "DNS as C2",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-2.png",
+      "type": "c2",
+      "id": "003",
+      "details": "<a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/bypassing-cylance-part-2-using-dnscat2\">https://www.blackhillsinfosec.com/bypassing-cylance-part-2-using-dnscat2</a>",
+      "description": "The attackers use DNS as a C2 channel.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "dnscat2"
+    },
+    {
+      "name": "Windows Background Intelligent Transfer Service (BITS)",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-3.png",
+      "type": "c2",
+      "id": "004",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/deruke/tools\">https://github.com/deruke/tools</a></li><li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1197/\">https://attack.mitre.org/techniques/T1197/</a></li>",
+      "description": "The attackers use BITS, another protocol that is often ignored.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Leviathan\nUBoatRAT"
+    },
+    {
+      "name": "Gmail, Tumblr, Salesforce, Twitter as C2",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-4.png",
+      "type": "c2",
+      "id": "005",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/byt3bl33d3r/gcat\">https://github.com/byt3bl33d3r/gcat</a></li><li><a target=\"_blank\" href=\"https://github.com/DakotaNelson/sneaky-creeper\">https://github.com/DakotaNelson/sneaky-creeper</a></li>",
+      "description": "The attackers route traffic through third-party services. Many services, like Gmail, are ignored completely by many security tools.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Gcat\nSneaky Creeper"
+    },
+    {
+      "name": "Domain Fronting as C2",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_CE-5.png",
+      "type": "c2",
+      "id": "006",
+      "details": "<li><a target=\"_blank\" href=\"https://www.cobaltstrike.com\">https://www.cobaltstrike.com</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/bypass-web-proxy-filtering\">https://www.blackhillsinfosec.com/bypass-web-proxy-filtering</a></li>",
+      "description": "The attackers use Domain Fronting to bounce their traffic off of legitimate systems.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Cobalt Strike"
+    },
+    {
+      "name": "Phish",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-1.png",
+      "type": "initial",
+      "id": "007",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/drk1\">https://github.com/drk1</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/how-to-phish-for-geniuses\">https://www.blackhillsinfosec.com/how-to-phish-for-geniuses</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/offensive-spf-how-to-automate-anti-phishing-reconnaissance-using-sender-policy-framework\">https://www.blackhillsinfosec.com/offensive-spf-how-to-automate-anti-phishing-reconnaissance-using-sender-policy-framework</a></li>",
+      "description": "The attackers send a malicious email targeting users. Because users are super easy to attack. Feel free to add a narrative of a CEO getting phished. Or maybe the Help Desk!",
+      "detection": [
+        "SIEM Log Analysis",
+        "Server Analysis",
+        "Endpoint Security Protection Analysis"
+      ],
+      "tools": "modalishka\nevilginx\nGoPhish"
+    },
+    {
+      "name": "Web Server Compromise",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-2.png",
+      "type": "initial",
+      "id": "008",
+      "details": "<li><a target=\"_blank\" href=\"https://www.zaproxy.org\">https://www.zaproxy.org</a></li><li><a target=\"_blank\" href=\"https://portswigger.net/burp\">https://portswigger.net/burp</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/using-simple-burp-macros-to-automate-testing\">https://www.blackhillsinfosec.com/using-simple-burp-macros-to-automate-testing</a></li>",
+      "description": "The attackers take over an external web server. They use it to pivot to your internal network.",
+      "detection": [
+        "Server Analysis",
+        "SIEM Log Analysis",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "Zed Attack Proxy\nsqlmap\nBurp Proxy"
+    },
+    {
+      "name": "External Cloud Access",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-3.png",
+      "type": "initial",
+      "id": "009",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/byt3bl33d3r/SprayingToolkit\">https://github.com/byt3bl33d3r/SprayingToolkit</a></li><li><a target=\"_blank\" href=\"https://github.com/trufflesecurity/trufflehog\">https://github.com/trufflesecurity/trufflehog</a></li><li><a target=\"_blank\" href=\"https://github.com/ustayready/fireprox\">https://github.com/ustayready/fireprox</a></li>",
+      "description": "The attackers gain access to your cloud resources. They use this access to pivot.",
+      "detection": [
+        "SIEM Log Analysis"
+      ],
+      "tools": "SprayingToolkit\ntruffleHog\nFireProx"
+    },
+    {
+      "name": "Insider Threat",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-4.png",
+      "type": "initial",
+      "id": "010",
+      "details": "<a target=\"_blank\" href=\"https://americanaddictioncenters.org\">https://americanaddictioncenters.org</a>",
+      "description": "An internal, disgruntled user exfiltrates information from your network.",
+      "detection": [
+        "User and Entity Behavior Analytics",
+        "Cyber Deception"
+      ],
+      "tools": "Being considered a Full-Time Expenditure (FTE)\nLong Hours\nAddiction"
+    },
+    {
+      "name": "Password Spray",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-5.png",
+      "type": "initial",
+      "id": "011",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/vanhauser-thc/thc-hydra\">https://github.com/vanhauser-thc/thc-hydra</a></li><li><a target=\"_blank\" href=\"https://github.com/dafthack/MailSniper\">https://github.com/dafthack/MailSniper</a></li><li><a target=\"_blank\" href=\"https://github.com/arch4ngel/BruteLoops\">https://github.com/arch4ngel/BruteLoops</a></li><li><a target=\"_blank\" href=\"https://github.com/dafthack/MSOLSpray\">https://github.com/dafthack/MSOLSpray</a></li>",
+      "description": "The attackers gain access to your internal network by spraying commonly used passwords (like SeasonYear) against your organization. An example would be a VPN.",
+      "detection": [
+        "SIEM Log Analysis",
+        "Cyber Deception",
+        "User and Entity Behavior Analytics",
+        "Firewall Log Review"
+      ],
+      "tools": "SprayingToolkit\nFireProx\nHydra\nMailSniper\nBruteLoops\nMSOLSpray"
+    },
+    {
+      "name": "Trusted Relationship",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-6.png",
+      "type": "initial",
+      "id": "012",
+      "details": "",
+      "description": "A trusted third party who has access to your network is compromised. The attackers use this to pivot to your internal resources.",
+      "detection": [
+        "SIEM Log Analysis",
+        "User and Entity Behavior Analytics"
+      ],
+      "tools": "An unfortunate and unfounded trust in humanity and business partners who are complete strangers."
+    },
+    {
+      "name": "Social Engineering",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-7.png",
+      "type": "initial",
+      "id": "012",
+      "details": "<li><a target=\"_blank\" href=\"https://youtu.be/rnmcRTnTNC8\">https://youtu.be/rnmcRTnTNC8</a></li><li><a target=\"_blank\" href=\"https://youtu.be/FvhkKwHjUVg\">https://youtu.be/FvhkKwHjUVg</a></li>",
+      "description": "The attackers use social engineering to trick a user into running malware.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "Phone\nA goal and a dream of evil\nPeople trusting people"
+    },
+    {
+      "name": "Bring Your Own (Exploited) Device",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-8.png",
+      "type": "initial",
+      "id": "013",
+      "details": "<a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/pentesting-dropbox-on-steroids\">https://www.blackhillsinfosec.com/pentesting-dropbox-on-steroids</a>",
+      "description": "Your organization allows users to bring in their own devices. Or, another way to put it, they bring in their own exploited devices. The attackers use these devices to compromise your organization.",
+      "detection": [
+        "Firewall Log Review",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "The completely asinine belief that somehow allowing people to bring their own devices in is a worthy cost savings."
+    },
+    {
+      "name": "Exploitable External Service",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-9.png",
+      "type": "initial",
+      "id": "014",
+      "details": "<a target=\"_blank\" href=\"https://www.metasploit.com\">https://www.metasploit.com</a>",
+      "description": "An external service has a misconfiguration or a publicly available exploit. The attackers take advantage of this to attack and pivot to internal resources.",
+      "detection": [
+        "Firewall Log Review",
+        "Server Analysis"
+      ],
+      "tools": "Metasploit\nFailed Patching Process\nUnauthorized System Stood Up by Employee"
+    },
+    {
+      "name": "Credential Stuffing",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_IC-10.png",
+      "type": "initial",
+      "id": "015",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/dafthack/DomainPasswordSpray\">https://github.com/dafthack/DomainPasswordSpray</a></li><li><a target=\"_blank\" href=\"https://portswigger.net/burp\">https://portswigger.net/burp</a></li>",
+      "description": "The attackers take advantage of third-party breaches to identify and use IDs and passwords against your organization.",
+      "detection": [
+        "Server Analysis",
+        "User and Entity Behavior Analytics"
+      ],
+      "tools": "Burp Suite\nHydra\nUsers registering for services with their work email addresses."
+    },
+    {
+      "name": "Honeypots Deployed",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-1.png",
+      "type": "inject",
+      "id": "016",
+      "details": "<li><a target=\"_blank\" href=\"https://www.activecountermeasures.com/free-tools/adhd\">https://www.activecountermeasures.com/free-tools/adhd</a></li><li><a target=\"_blank\" href=\"https://canarytokens.org/generate\">https://canarytokens.org/generate</a></li>",
+      "description": "The Defenders had honeypots on their network. The Incident Captain must reveal the Pivot and Escalate Card to the Defenders.",
+      "notes": "Check out the Active Defense Harbinger Distribution (ADHD), it has lots and lots of cool tools. Also, take a look at canarytokens.org."
+    },
+    {
+      "name": "It Was a Pentest",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-2.png",
+      "type": "inject",
+      "id": "017",
+      "details": "<a target=\"_blank\" href=\"https:/www.blackhillsinfosec.com\">https:/www.blackhillsinfosec.com</a>",
+      "description": "Ha! Ha! Just kidding, you were never attacked! The CEO hired an external firm (BHIS?) to run an unannounced Red Team.",
+      "notes": "This is almost always a bittersweet moment for companies. On the one hand, they are glad it wasn't the real thing. On the other... well, they were compromised. It's time to start working through how to prevent this from happening again."
+    },
+    {
+      "name": "Data Uploaded to Pastebin",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-3.png",
+      "type": "inject",
+      "id": "018",
+      "details": "",
+      "description": "Bummer, the attackers have posted internal sensitive data on Pastebin. Your customers are now informed of the attack by the media.",
+      "notes": "It happens... a lot, but it's just pure evil. Time to bring in Upper Management and the Legal Team."
+    },
+    {
+      "name": "SIEM Analyst Returns From Splunk Training",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-4.png",
+      "type": "inject",
+      "id": "019",
+      "details": "",
+      "description": "(+2) Modifier for Log-Related Actions",
+      "notes": "Training is awesome. You need to get some."
+    },
+    {
+      "name": "Take One Procedure Card Away",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-5.png",
+      "type": "inject",
+      "id": "020",
+      "details": "",
+      "description": "What it says on the tin. Take a Procedure Card away from the Defenders. Hey, sometimes things don't work. Honestly, does this surprise you?",
+      "notes": "Sometimes procedures fail. Sometimes they're not followed correctly. Sometimes you can't find a procedure when you need it the most. Nobody's perfect. Sorry."
+    },
+    {
+      "name": "Give The Defenders a Random Procedure Card",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-6.png",
+      "type": "inject",
+      "id": "021",
+      "details": "",
+      "description": "For whatever reason, everyone forgot they had this procedure. It must be Monday.",
+      "notes": "Look, it happens all the time. We forget what we have. Different teams, different tools, different offices. It's nice when we all pull together as a team."
+    },
+    {
+      "name": "Lead Handler Has a Baby, Takes FMLA Leave",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-7.png",
+      "type": "inject",
+      "id": "022",
+      "details": "",
+      "description": "Yeah, there's always one person who pretty much runs the whole IR process. That one essential person. Well, now it's time for the Incident Captain to silence that person.",
+      "notes": "We have to continue to be able to work effectively without the one or two most advanced people on the team. All of the quiet people who were just passively listening and hoping to not get called on now need to step up. Now is your time. Shine!"
+    },
+    {
+      "name": "Bobby the Intern Kills the System You are Reviewing",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-8.png",
+      "type": "inject",
+      "id": "023",
+      "details": "",
+      "description": "This. Happens. Far. Too. Often.",
+      "notes": "No. Murder is never okay. Don't even think that."
+    },
+    {
+      "name": "Legal Takes Your Most Skilled Handler Into a Meeting to Explain the Incident",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_INJ-9.png",
+      "type": "inject",
+      "id": "024",
+      "details": "",
+      "description": "Who brought a lawyer to the party? There's always one person who pretty much runs the whole IR process. That one essential person. Well, the legal team took that person away for \"Very Important Reasons.\"",
+      "notes": "They may never come back... all of the quiet people who were just passively listening and hoping to not get called on now need to step up. Now is your time. Shine!"
+    },
+    {
+      "name": "Internal Password Spray",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-1.png",
+      "type": "pivot",
+      "id": "025",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/dafthack/DomainPasswordSpray\">https://github.com/dafthack/DomainPasswordSpray</a></li><li><a target=\"_blank\" href=\"https://github.com/ropnop/kerbrute\">https://github.com/ropnop/kerbrute</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/webcast-attack-tactics-5-zero-to-hero-attack\">https://www.blackhillsinfosec.com/webcast-attack-tactics-5-zero-to-hero-attack</a></li>",
+      "description": "The attackers start a password spray against the rest of the organization from a compromised system.",
+      "detection": [
+        "User and Entity Behavior Analytics",
+        "Cyber Deception",
+        "SIEM Log Analysis"
+      ],
+      "tools": "DomainPasswordSpray\nBruteLoops\nKerbrute\nMetasploit"
+    },
+    {
+      "name": "Kerberoasting/ASREPRoasting",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-2.png",
+      "type": "pivot",
+      "id": "026",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/GhostPack\">https://github.com/GhostPack</a></li><li><a target=\"_blank\" href=\"https://github.com/SecureAuthCorp/impacket\">https://github.com/SecureAuthCorp/impacket</a></li><li><a target=\"_blank\" href=\"https://github.com/hashcat/hashcat\">https://github.com/hashcat/hashcat</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/running-hashcat-on-ubuntu-18-04-server-with-1080ti\">https://www.blackhillsinfosec.com/running-hashcat-on-ubuntu-18-04-server-with-1080ti</a></li>",
+      "description": "The attackers use a\"feature\" of service principal names (SPNs) to extract and crack service passwords,",
+      "detection": [
+        "SIEM Log Analysis",
+        "User and Entity Behavior Analytics",
+        "Cyber Deception"
+      ],
+      "tools": "GhostPack:\n- Rubeus\nImpacket:\n- GetNPUsers.py\n- GetUserSPNs.py\nHashcat for Cracking"
+    },
+    {
+      "name": "Broadcast/Multicast Protocol Poisoning",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-3.png",
+      "type": "pivot",
+      "id": "027",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/dirkjanm/mitm6\">https://github.com/dirkjanm/mitm6</a></li><li><a target=\"_blank\" href=\"https://github.com/lgandx/Responder\">https://github.com/lgandx/Responder</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/\">https://www.blackhillsinfosec.com/how-to-disable-llmnr-why-you-want-to/</a></li>",
+      "description": "For years, LANMAN was the worst thing in Windows. Then LLMNR said, \"Stand Back and Hold My Beer!\" Basically, LLMNR lets a host ask for name resolution from any system on the same network. The attackers perform Broadcast/Multicast protocol poisoning on your Active Directory Network.",
+      "detection": [
+        "Cyber Deception",
+        "User and Entity Behavior Analytics",
+        "Firewall Log Review"
+      ],
+      "tools": "mitm6 attacks DHCPv6\nResponder attacks LLMNR, NBI-NS, WPAD, and mDNS."
+    },
+    {
+      "name": "Weaponizing Active Directory",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-4.png",
+      "type": "pivot",
+      "id": "028",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/BloodHoundAD/BloodHound\">https://github.com/BloodHoundAD/BloodHound</a></li><li><a target=\"_blank\" href=\"https://github.com/byt3bl33d3r/DeathStar\">https://github.com/byt3bl33d3r/DeathStar</a></li><li><a target=\"_blank\" href=\"https://github.com/Porchetta-Industries/CrackMapExec\">https://github.com/Porchetta-Industries/CrackMapExec</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/webcast-weaponizing-active-directory\">https://www.blackhillsinfosec.com/webcast-weaponizing-active-directory</a></li>",
+      "description": "The attackers map domain trust relationships, group policies, user/group privileges, and object access control lists (ACLs) in your Active Directory.",
+      "detection": [
+        "SIEM Log Analysis",
+        "User and Entity Behavior Analytics",
+        "Endpoint Security Protection Analysis",
+        "Cyber Deception"
+      ],
+      "tools": "BloodHound\nDeathStar\nCrackMapExec"
+    },
+    {
+      "name": "Credential Stuffing",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-5.png",
+      "type": "pivot",
+      "id": "029",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/Exploit-install/PowerSploit\">https://github.com/Exploit-install/PowerSploit</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/domain-goodness-learned-love-ad-explorer\">https://www.blackhillsinfosec.com/domain-goodness-learned-love-ad-explorer</a></li><li><a target=\"_blank\" href=\"https:/www.blackhillsinfosec.com/abusing-exchange-mailbox-permissions-mailsniper\">https:/www.blackhillsinfosec.com/abusing-exchange-mailbox-permissions-mailsniper</a></li>",
+      "description": "Valid Active Directory credentials have been discovered on open shares and files within your environment. These are used by the attackers.",
+      "detection": [
+        "SIEM Log Analysis",
+        "User and Entity Behavior Analytics",
+        "Cyber Deception"
+      ],
+      "tools": "PowerSploit:\n- Invoke-ShareFinder\n- Invoke-FileFinder\n- Find-InterestingFile\nADExplorer.exe\nMailSniper\nSnaffler\nCrackMapExec"
+    },
+    {
+      "name": "New Service Creation/Modification",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-6.png",
+      "type": "pivot",
+      "id": "030",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/SecureAuthCorp/impacket\">https://github.com/SecureAuthCorp/impacket</a></li><li><a target=\"_blank\" href=\"https://www.metasploit.com\">https://www.metasploit.com</a></li>",
+      "description": "The attackers create and load their malware using a new service or existing service modification.",
+      "detection": [
+        "Endpoint Analysis",
+        "Endpoint Security Protection Analysis"
+      ],
+      "tools": "Sysinternals PSEXEC services.msc\nImpacket:\n- psexec.py\nMetasploit:\n- psexec\n- getsystem"
+    },
+    {
+      "name": "Local Privilege Escalation",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PE-7.png",
+      "type": "pivot",
+      "id": "031",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/slyd0g/DLLHijackTest\">https://github.com/slyd0g/DLLHijackTest</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/powershell-without-powershell-how-to-bypass-application-whitelisting-environment-restrictions-aV\">https://www.blackhillsinfosec.com/powershell-without-powershell-how-to-bypass-application-whitelisting-environment-restrictions-aV</a></li>",
+      "description": "The attackers use a misconfiguration or vulnerability in local software to gain administrative access.",
+      "detection": [
+        "Endpoint Analysis",
+        "Cyber Deception",
+        "Endpoint Security Protection Analysis"
+      ],
+      "tools": "Meterpreter Post-Exploitation Scripts\nDLLHijackTest\nPowerSploit:\n- PowerUp\nGhostPack:\n- SharpUp"
+    },
+    {
+      "name": "Malicious Service",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-1.png",
+      "type": "persist",
+      "id": "032",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/byt3bl33d3r/SILENTTRINITY\">https://github.com/byt3bl33d3r/SILENTTRINITY</a></li><li><a target=\"_blank\" href=\"https://learn.microsoft.com/en-us/sysinternals/\">https://learn.microsoft.com/en-us/sysinternals/</a></li>",
+      "description": "The attackers add a service that starts every time the system starts.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Memory Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Meterpreter Persistence Modules\nmsconfig.exe\nSILENTTRINITY\nSysinternals:\n- autoruns.exe"
+    },
+    {
+      "name": "DLL Attacks",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-2.png",
+      "type": "persist",
+      "id": "033",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/slyd0g/DLLHijackTest\">https://github.com/slyd0g/DLLHijackTest</a></li><li><a target=\"_blank\" href=\"https://github.com/Exploit-install/PowerSploit\">https://github.com/Exploit-install/PowerSploit</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/digging-deeper-vulnerable-windows-services\">https://www.blackhillsinfosec.com/digging-deeper-vulnerable-windows-services</a></li>",
+      "description": "The attackers hijack the order in which dynamic link libraries (DLLs) are loaded. This is usually done through insecure directory/file permissions.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Memory Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "DLLHijackTest\nPowerSploit:\n- PowerUp"
+    },
+    {
+      "name": "Malicious Driver",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-3.png",
+      "type": "persist",
+      "id": "034",
+      "details": "<a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Alureon\">https://en.wikipedia.org/wiki/Alureon</a>",
+      "description": "The attackers load a malicious driver into the operating system.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Memory Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Pasam\nWingbird\nSeaDuke\nROCKBOOT\nAlureon"
+    },
+    {
+      "name": "New User Added",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-4.png",
+      "type": "persist",
+      "id": "035",
+      "details": "<li><a target=\"_blank\" href=\"https://www.metasploit.com\">https://www.metasploit.com</a></li><li><a target=\"_blank\" href=\"https://www.cobaltstrike.com\">https://www.cobaltstrike.com</a></li>",
+      "description": "Easy, the attackers add a new user to the local computer.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Metasploit\nCobalt Strike"
+    },
+    {
+      "name": "Application Shimming",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-5.png",
+      "type": "persist",
+      "id": "036",
+      "details": "<li><a target=\"_blank\" href=\"https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install\">https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install</a></li><li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1546/011/\">https://attack.mitre.org/techniques/T1546/011/</a></li>",
+      "description": "The attackers use the Application Compatibility Toolkit to trick applications into not seeing the ports, directories, files, and services the attackers want to hide.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Windows Assessment and Deployment Kit (ADK)"
+    },
+    {
+      "name": "Malicious Browser Plugins",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-6.png",
+      "type": "persist",
+      "id": "037",
+      "details": "<li><a target=\"_blank\" href=\"https://www.kaspersky.com/blog/browser-extensions-security/20886\">https://www.kaspersky.com/blog/browser-extensions-security/20886</a></li><li><a target=\"_blank\" href=\"https://github.com/graniet/chromebackdoor\">https://github.com/graniet/chromebackdoor</a></li>",
+      "description": "The attackers install plugins in the browser. This can be used as part of C2 and persistence. The browser is the new endpoint.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis",
+        "Firewall Log Review",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "Grammarly is a Keylogger graniet/chromebackdoor"
+    },
+    {
+      "name": "Logon Scripts",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-7.png",
+      "type": "persist",
+      "id": "038",
+      "details": "<li><a target=\"_blank\" href=\"https://www.metasploit.com\">https://www.metasploit.com</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/backdoors-breaches-logon-scripts/\">https://www.blackhillsinfosec.com/backdoors-breaches-logon-scripts/</a></li>",
+      "description": "The attackers install a script that triggers when a user logs on.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Meterpreter Persistence"
+    },
+    {
+      "name": "Evil Firmware",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-8.png",
+      "type": "persist",
+      "id": "039",
+      "details": "<li><a target=\"_blank\" href=\"https://threatpost.com/uefi-rootkit-sednit/140420\">https://threatpost.com/uefi-rootkit-sednit/140420</a></li><li><a target=\"_blank\" href=\"https://thehackernews.com/2020/12/trickbot-malware-gets-uefibios-bootkit.html\">https://thehackernews.com/2020/12/trickbot-malware-gets-uefibios-bootkit.html</a></li>",
+      "description": "The attackers update the firmware of network cards, video cards, and BIOS or UEFI... with Evil! All of these are very difficult to detect and very difficult to update.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Hacking Team UEFI Rootkit\nBadBIOS (... maybe.)\nTrickbot"
+    },
+    {
+      "name": "Accessibility Features",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PER-9.png",
+      "type": "persist",
+      "id": "040",
+      "details": "<li><a target=\"_blank\" href=\"https://shop.hak5.org\">https://shop.hak5.org</a></li>",
+      "description": "The attackers hijack Accessibility Features like Sticky Keys and On-Screen Keyboard.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Bash Bunny - For examples\nUSB Rubber Ducky - For examples"
+    },
+    {
+      "name": "SIEM Log Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-0.png",
+      "type": "procedure",
+      "id": "041",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/philhagen/sof-elk\">https://github.com/philhagen/sof-elk</a></li><li><a target=\"_blank\" href=\"https:/jpcertcc.github.io/ToolAnalysisResultSheet\">https:/jpcertcc.github.io/ToolAnalysisResultSheet</a></li>",
+      "description": "Security Information and Event Management (SIEM) Log Analysis\nYeah... good luck with this one. Are you logging the right things? Do you regularly emulate attack scenarios to see if you can detect them?",
+      "tools": "SOF-ELK\nJPCert Tool Analysis"
+    },
+    {
+      "name": "Server Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-1.png",
+      "type": "procedure",
+      "id": "042",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/sans-blue-team/DeepBlueCLI\">https://github.com/sans-blue-team/DeepBlueCLI</a></li>",
+      "description": "The ability to baseline a system and verify that it is operating in a normal state. By the way, this is more than simply running Task Manager and looking for evil_backdoor.exe.",
+      "tools": "DeepBlueCLI\nSANS Analysis Cheat Sheets"
+    },
+    {
+      "name": "Firewall Log Review",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-3.png",
+      "type": "procedure",
+      "id": "043",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/philhagen/sof-elk\">https://github.com/philhagen/sof-elk</a></li>",
+      "description": "Can your organization analyze and understand firewall logs? Do you regularly emulate attack scenarios and verify that your procedures work?",
+      "tools": "SOF-ELK"
+    },
+    {
+      "name": "Network Threat Hunting - Zeek/RITA Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-4.png",
+      "type": "procedure",
+      "id": "044",
+      "details": "<li><a target=\"_blank\" href=\"https://www.activecountermeasures.com/free-tools/\">https://www.activecountermeasures.com/free-tools/</a></li><li><a target=\"_blank\" href=\"https://securityonionsolutions.com/\">https://securityonionsolutions.com/</a></li>",
+      "description": "Does your organization capture and review network traffic? Good! Do you know how to parse and review it? Is that process documented? Or, do you just run Zeek/RITA/Security Onion/ELK because the cool kids are doing it?",
+      "tools": "Real Intelligence Threat Analytics (RITA)\nSecurity Onion\nAC-Hunter\nPasser\nespy"
+    },
+    {
+      "name": "Cyber Deception",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-5.png",
+      "type": "procedure",
+      "id": "045",
+      "details": "<li><a target=\"_blank\" href=\"https:/lengage.mitre.org/\">https:/lengage.mitre.org/</a></li><li><a target=\"_blank\" href=\"https://www.activecountermeasures.com/free-tools/adhd/\">https://www.activecountermeasures.com/free-tools/adhd/</a></li>",
+      "description": "The attackers go after one of your deception technologies. This could be a word web bug, honey account, or a full honeypot.",
+      "tools": "CanaryTokens\nHoneyBadger\nActive Defense Harbinger Distribution (ADHD)\nMITRE Engage"
+    },
+    {
+      "name": "Endpoint Security Protection Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-6.png",
+      "type": "procedure",
+      "id": "046",
+      "details": "<li><a target=\"_blank\" href=\"https://docs.velociraptor.app/\">https://docs.velociraptor.app/</a></li><li><a target=\"_blank\" href=\"https:/www.elastic.co/downloads/elastic-agent\">https:/www.elastic.co/downloads/elastic-agent</a></li>",
+      "description": "We know, you have AV. Great! Do you actually get alerts and logs? Do you immediately review them? Or, do you simply turn it on and walk away while the network explodes like you're in a bad action movie?",
+      "tools": "Check with your vendor, they miss you and always want to chat"
+    },
+    {
+      "name": "User and Entity Behavior Analytics",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-7.png",
+      "type": "procedure",
+      "id": "047",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/JPCERTCC/LogonTracer\">https://github.com/JPCERTCC/LogonTracer</a></li><li><a target=\"_blank\" href=\"https://openuba.org/\">https://openuba.org/</a></li>",
+      "description": "It's like logging, but it actually works. User and entity behavior analytics (UEBA) looks for multiple concurrent logons, impossible logons based on geography, unusual file access, password sprays, and more!",
+      "tools": "LogonTracer\nDeepBlueCLI\nOpenUBA"
+    },
+    {
+      "name": "Endpoint Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-8.png",
+      "type": "procedure",
+      "id": "048",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/sans-blue-team/DeepBlueCLI\">https://github.com/sans-blue-team/DeepBlueCLI</a></li><li><a target=\"_blank\" href=\"https://docs.velociraptor.app/\">https://docs.velociraptor.app/</a></li>",
+      "description": "This is where the Defenders use their SANS IR Cheat Sheets to detect attacks on workstations. Time to bring in a local operator... and hope for the best.",
+      "tools": "DeepBlueCLI\nVelociraptor\nSANS IR Cheat Sheets"
+    },
+    {
+      "name": "Isolation",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-9.png",
+      "type": "procedure",
+      "id": "049",
+      "details": "",
+      "description": "Your network team is on their game. They can easily isolate infected systems to prevent further harm.",
+      "tools": "Switch and Router Commands"
+    },
+    {
+      "name": "Crisis Management",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_PRO-10.png",
+      "type": "procedure",
+      "id": "050",
+      "details": "",
+      "description": "Your Legal and Management Teams have procedures for effectively and ethically notifying impacted victims of compromises.",
+      "tools": "This almost never happens. But, a good notification strategy will really help deal with the political fallout."
+    },
+    {
+      "name": "Memory Analysis",
+      "image": "decks/CoreV2.2/BNB_CARDS_v2.2_Pro-11.png",
+      "type": "procedure",
+      "id": "051",
+      "details": "<li><a target=\"_blank\" href=\"https://docs.velociraptor.app/\">https://docs.velociraptor.app/</a></li><li><a target=\"_blank\" href=\"https://www.volatilityfoundation.org/\">https://www.volatilityfoundation.org/</a></li>",
+      "description": "The Defenders pull the memory from the suspect system and review it for possible malicious activity.",
+      "tools": "Volatility, to review the memory\nVelociraptor, to dump the memory"
+    },
+    {
+      "name": "Missing HTTP Strict Transport Security (HSTS) Protection",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_1.png",
+      "type": "initial",
+      "id": "052",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/droe/sslsplit\">https://github.com/droe/sslsplit</a></li><li><a target=\"_blank\" href=\"https://github.com/moxie0/sslstrip\">https://github.com/moxie0/sslstrip</a></li>",
+      "description": "By having HTTP to HTTPS redirects, the attackers can 'strip' SSL from a session. The attackers need to be on the same network for this to work. So, think coffee shops... evil, coffee shops.",
+      "detection": [
+        "Firewall Log Review",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "SSLStrip\nSSLSplit"
+    },
+    {
+      "name": "Supply Chain Attack",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_2.png",
+      "type": "initial",
+      "id": "053",
+      "details": "<li><a target=\"_blank\" href=\"https://krebsonsecurity.com/2020/12/solarwinds-hack-could-affect-18k-customers\">https://krebsonsecurity.com/2020/12/solarwinds-hack-could-affect-18k-customers</a></li><li><a target=\"_blank\" href=\"https://www.wired.com/story/russia-solarwinds-hack-roundup\">https://www.wired.com/story/russia-solarwinds-hack-roundup</a></li>",
+      "description": "The attackers insert malware in the update process of one of your key enterprise management tools. This gives them direct access to the heart of your infrastructure.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis",
+        "Network Threat Hunting - Zeek/RITA Analysis"
+      ],
+      "tools": "SUNBURST\nSUPERNOVA"
+    },
+    {
+      "name": "Physical Access",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_3.png",
+      "type": "initial",
+      "id": "054",
+      "details": "<li><a target=\"_blank\" href=\"https://youtu.be/rnmcRTnTNC8\">https://youtu.be/rnmcRTnTNC8</a></li>",
+      "description": "The attackers gain physical access to your organization and use this to pivot to your internal networks.",
+      "detection": [
+        "Physical Security Review"
+      ],
+      "tools": "Clipboard\nCrowbar\nRFID Badge Cloner\nLockpicks\nStolen Keys\nCounterfeit Work ID\nBrick\nLadder"
+    },
+    {
+      "name": "SMB Weakness",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_4.png",
+      "type": "pivot",
+      "id": "055",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/Kevin-Robertson/Inveigh\">https://github.com/Kevin-Robertson/Inveigh</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/an-smb-relay-race-how-to-exploit-llmnr-and-smb-message-signing-for-fun-and-profit/\">https://www.blackhillsinfosec.com/an-smb-relay-race-how-to-exploit-llmnr-and-smb-message-signing-for-fun-and-profit/</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/webcast-group-policies-that-kill-kill-chains\">https://www.blackhillsinfosec.com/webcast-group-policies-that-kill-kill-chains</a></li>",
+      "description": "The attackers take advantage of a number of different Server Message Block (SMB) issues that can be used for post-exploitation. From SMB Signing disabled to using SMBv1.",
+      "detection": [
+        "User and Entity Behavior Analytics",
+        "SIEM Log Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "NTLMRelayX\nCrackMapExec\nResponder\nInveigh"
+    },
+    {
+      "name": "Internal Spearphishing",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_5.png",
+      "type": "pivot",
+      "id": "056",
+      "details": "<li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1534\">https://attack.mitre.org/techniques/T1534</a></li>",
+      "description": "The attackers leverage existing access to users' email to send attack emails to other targets. Because they come from the inside, the attack emails tend to bypass security controls.",
+      "detection": [
+        "Server Analysis",
+        "SIEM Log Analysis"
+      ],
+      "tools": "Internal Existing Email Services\nGamaredon Group"
+    },
+    {
+      "name": "Access Token Manipulation",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_6.png",
+      "type": "pivot",
+      "id": "057",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/Exploit-install/PowerSploit\">https://github.com/Exploit-install/PowerSploit</a></li><li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1134\">https://attack.mitre.org/techniques/T1134</a></li><li><a target=\"_blank\" href=\"https://pentestlab.blog/2017/04/03/token-manipulation\">https://pentestlab.blog/2017/04/03/token-manipulation</a></li>",
+      "description": "The attackers conduct actions under other user/service account tokens.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis",
+        "Cyber Deception"
+      ],
+      "tools": "PowerSploit\nEmpire\nPoshC2"
+    },
+    {
+      "name": "Stale Network Address Configurations (SNAC) Attack",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_7.png",
+      "type": "pivot",
+      "id": "058",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/arch4ngel/eavesarp\">https://github.com/arch4ngel/eavesarp</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/analyzing-arp-to-discover-exploit-stale-network-address-configurations\">https://www.blackhillsinfosec.com/analyzing-arp-to-discover-exploit-stale-network-address-configurations</a></li>",
+      "description": "The attackers take advantage of a system or a network service that has been configured with a hard-coded IP address or fully qualified domain name (FQDN) that is no longer associated with a live host.",
+      "detection": [
+        "Network Threat Hunting - Zeek/RITA Analysis",
+        "Firewall Log Review"
+      ],
+      "tools": "Eavesarp"
+    },
+    {
+      "name": "Cleartext Passwords in Files",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_8.png",
+      "type": "pivot",
+      "id": "059",
+      "details": "<li><a target=\"_blank\" href=\"https://github.com/SnaffCon/Snaffler\">https://github.com/SnaffCon/Snaffler</a></li><li><a target=\"_blank\" href=\"https://www.blackhillsinfosec.com/power-posing-powerops\">https://www.blackhillsinfosec.com/power-posing-powerops</a></li>",
+      "description": "The attackers love people who share and save passwords in files everyone else can read. This attack works because people (often admins and developers) create documents and spreadsheets with passwords in them. Then, they put them on shares that are readable to everyone in the domain.",
+      "detection": [
+        "User and Entity Behavior Analytics",
+        "Cyber Deception",
+        "Endpoint Analysis"
+      ],
+      "tools": "Snaffler\nPowerShellEmpire"
+    },
+    {
+      "name": "Event Triggered Malware",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_9.png",
+      "type": "persist",
+      "id": "060",
+      "details": "<li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1546/014\">https://attack.mitre.org/techniques/T1546/014</a></li><li><a target=\"_blank\" href=\"https://youtu.be/XFk-bOaT6cs\">https://youtu.be/XFk-bOaT6cs</a></li>",
+      "description": "The attackers' malware triggers only when specific events occur. For example, when a specific DLL or service is started.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis",
+        "SIEM Log Analysis"
+      ],
+      "tools": "Tsunami\nWMI Malware"
+    },
+    {
+      "name": "Malware Injection Into Client Software",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_10.png",
+      "type": "persist",
+      "id": "061",
+      "details": "<li><a target=\"_blank\" href=\"https://www.welivesecurity.com/2014/02/21/an-in-depth-analysis-of-linuxebury\">https://www.welivesecurity.com/2014/02/21/an-in-depth-analysis-of-linuxebury</a></li><li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1554\">https://attack.mitre.org/techniques/T1554</a></li>",
+      "description": "The attackers insert their malware to run alongside (or in) third-party software. Stuxnet and Bonadan did this.",
+      "detection": [
+        "User and Entity Behavior Analytics",
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Stuxnet\nBonadan"
+    },
+    {
+      "name": "Malicious Email Rules",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_11.png",
+      "type": "persist",
+      "id": "062",
+      "details": "<li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1137\">https://attack.mitre.org/techniques/T1137</a></li>",
+      "description": "The attackers create rules in an email inbox and/or client that trigger on specific events or when certain keywords are present in a message.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis",
+        "SIEM Log Analysis"
+      ],
+      "tools": "Gamaredon Group"
+    },
+    {
+      "name": "Windows Service Recovery Actions",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_12.png",
+      "type": "persist",
+      "id": "63",
+      "details": "<li><a target=\"_blank\" href=\"https://kb.infobridge.com/hc/en-us/articles/207123929-Setting-Windows-Service-Recovery-options\">https://kb.infobridge.com/hc/en-us/articles/207123929-Setting-Windows-Service-Recovery-options</a></li>",
+      "description": "The attackers use Windows Service failure recovery actions as a means of persistence on an accessible service they can remotely crash on demand.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "Windows Service Recovery Actions"
+    },
+    {
+      "name": "Registry Keys for Persistence",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_13.png",
+      "type": "persist",
+      "id": "064",
+      "details": "<li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1112\">https://attack.mitre.org/techniques/T1112</a></li>",
+      "description": "The attackers add/modify registry commands to cause their malware to run on system startup and/or user login. This has been around forever. Almost every piece of solid malware in existence can do this.",
+      "detection": [
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "reg command"
+    },
+    {
+      "name": "Exfiltration Over Physical Medium",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_14.png",
+      "type": "c2",
+      "id": "065",
+      "details": "<li><a target=\"_blank\" href=\"https://attack.mitre.org/techniques/T1052\">https://attack.mitre.org/techniques/T1052</a></li>",
+      "description": "The attackers use a USB drive, printouts, or even socks... yes, socks, as a way to get data out of a network. This requires an accomplice on the inside or it can be used with the Insider Threat (Initial Compromise) card.",
+      "detection": [
+        "Physical Security Review",
+        "Endpoint Security Protection Analysis",
+        "Endpoint Analysis"
+      ],
+      "tools": "USB drive/socks and a dream... a dream of evil."
+    },
+    {
+      "name": "Call a Consultant",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_15.png",
+      "type": "procedure",
+      "id": "066",
+      "details": "",
+      "description": "Do you want help? Feeling stuck? Rolling badly? Need a different perspective on the incident? Then maybe it's time to phone a friend.\n\nYou can choose one Consultant Card to help your team with the incident.\n\nThe Consultant Card's modifier is effective immediately."
+    },
+    {
+      "name": "Physical Security Review",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_16.png",
+      "type": "procedure",
+      "id": "067",
+      "details": "",
+      "description": "Do you have security cameras? Do you have security guards? Do you have access badges for certain areas in your facilities? Can just anyone access your sensitive IT infrastructure? No? Are you sure?"
+    },
+    {
+      "name": "Food Poisoning",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_17.png",
+      "type": "inject",
+      "id": "068",
+      "details": "",
+      "description": "The life of this organization depends upon just one thing: finding someone back there who can not only work this incident, but who didn't have fish for dinner.",
+      "notes": "Each of the Defenders must roll a D20 and the person with the lowest number will finish the session by themselves without any assistance from the others."
+    },
+    {
+      "name": "SIEM Goes Down",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_18.png",
+      "type": "inject",
+      "id": "069",
+      "details": "",
+      "description": "No SIEM for you!",
+      "notes": "It is discovered that due to an intern error, your logging server/SIEM has not been logging properly for the last two weeks. All SIEM actions are off the table for the rest of the session."
+    },
+    {
+      "name": "This Isn't the First Time, and Won't Be the Last",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_19.png",
+      "type": "inject",
+      "id": "070",
+      "details": "",
+      "description": "This is not the first time the attackers have been on your network.",
+      "notes": "Through forensic analysis, it has been discovered that the backdoor had internal DNS servers' IP addresses hard-coded in them because the attackers have been in before. Have the Incident Captain draw an additional Persistence Card."
+    },
+    {
+      "name": "EDR Compromise",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_20.png",
+      "type": "inject",
+      "id": "071",
+      "details": "",
+      "description": "The attackers gain access to your Endpoint Protection suite of tools.",
+      "notes": "Endpoints stop reporting to the EDR console... The attackers found a console session that hadn't timed out yet and issued mass uninstalls. All Endpoint Security Protection Analysis actions are unavailable for the rest of the session."
+    },
+    {
+      "name": "Attackers Taunt You",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_21.png",
+      "type": "inject",
+      "id": "072",
+      "details": "",
+      "description": "The attackers call out the security team, via a message to every system on the network.",
+      "notes": "The attackers use msg command to send a pop-up to incident responders, 'Shall we play a game?'"
+    },
+    {
+      "name": "Attackers Timestomp Key Evidence Files",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_22.png",
+      "type": "inject",
+      "id": "073",
+      "details": "",
+      "description": "(-3) Modifier for Log-Related Actions\n\nThere are tools that allow attackers to modify Modified-Accessed-Created-Entry (MACE) timestamps of files. One such tool is in Metasploit called Timestomp.",
+      "notes": "The attackers can change the MACE for their malware to be in the future. What does this do to your handling of evidence? Can you trust timestamps at all?"
+    },
+    {
+      "name": "No Good Deed Goes Unpunished...",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_23.png",
+      "type": "inject",
+      "id": "074",
+      "details": "",
+      "description": "The Purple Team uncovers another incident.",
+      "tools": "Scythe\nAtomic Red Team\nCaldera",
+      "notes": "When tuning your detection capabilities during a purple team engagement (unrelated to the incident at hand), your team detects another attack. You now have two compromises to deal with. Have the Incident Captain pull another set of Attack Cards. The Defenders get five extra turns."
+    },
+    {
+      "name": "Our Friend, Hacky",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_24.png",
+      "type": "inject",
+      "id": "075",
+      "details": "",
+      "description": "You discover other attackers have been on your network for months.",
+      "notes": "Have the Incident Captain draw an additional Initial Compromise Card."
+    },
+    {
+      "name": "Is it Getting Hot in Here?",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_25.png",
+      "type": "inject",
+      "id": "076",
+      "details": "",
+      "description": "HVAC systems are important... and they will fail at the worst times. This... is one of those times.",
+      "notes": "Your data center HVAC system is infected with a worm. It's supposed to be air-gapped. It is 103°F outside, and the server temperatures are rising. All servers need to be shut down. RIGHT NOW! Hope you have a \"hot site.\""
+    },
+    {
+      "name": "Don't Forget to Smash the Subscribe Button!",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_26.png",
+      "type": "inject",
+      "id": "077",
+      "details": "",
+      "description": "Some attackers just want to watch the world burn.",
+      "notes": "The attackers post a YouTube video detailing the extent of their attack because it wasn't getting the press they thought it deserved."
+    },
+    {
+      "name": "Alethe Denis",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_27.png",
+      "type": "consultant",
+      "id": "078",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/AletheDenis\">https://twitter.com/AletheDenis</a></li>",
+      "description": "The Incident Captain must reveal the Initial Compromise Card.",
+      "specialties": [
+        "OSINT",
+        "Social Engineering",
+        "Security Awareness Training",
+        "Policy and Compliance",
+        "Public Speaking",
+        "Comic Book Nerd"
+      ],
+      "quote": "\"The best way to get management excited about a disaster plan is to burn down the building across the street.\" - Dan Erwin"
+    },
+    {
+      "name": "Time Medin",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_28.png",
+      "type": "consultant",
+      "id": "079",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/timmedin\">https://twitter.com/timmedin</a></li>",
+      "description": "The Incident Captain must reveal the Pivot and Escalate Card.",
+      "specialties": [
+        "Offensive Operations",
+        "Risk Management",
+        "Vulnerability Management",
+        "Infosec Instructor and Author",
+        "Public Speaking",
+        "PowerPoint... lots and lots of PowerPoint"
+      ],
+      "quote": "\"You see the world different. You learn how things work... and then how to break it. That is hacking.\" - Tim Medin"
+    },
+    {
+      "name": "Jorge Orchilles",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_29.png",
+      "type": "consultant",
+      "id": "080",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/jorgeorchilles\">https://twitter.com/jorgeorchilles</a></li>",
+      "description": "The Incident Captain must reveal the Pivot and Escalate Card.",
+      "specialties": [
+        "Offensive Security",
+        "Purple Team",
+        "Detection Engineering",
+        "Co-creator of C2 Matrix",
+        "Infosec Instructor and Author",
+        "Public Speaking"
+      ],
+      "quote": "\"Offense informs defense and defense informs offense.\" - Jorge Orchilles"
+    },
+    {
+      "name": "Alissa Torres",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_30.png",
+      "type": "consultant",
+      "id": "081",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/sibertor\">https://twitter.com/sibertor</a></li>",
+      "description": "The Incident Captain must reveal the Persistence Card.",
+      "specialties": [
+        "Executor of Host-based Triage",
+        "Performer of Memory Forensics",
+        "File System Metadata Summoner",
+        "Incident Response Kill Chain Slayer",
+        "Architect of Inspirational PPTX"
+      ],
+      "quote": "\"Heroism is often nothing more than the omission of details.\" - Asim Qureshi"
+    },
+    {
+      "name": "Dieter Smith",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_31.png",
+      "type": "consultant",
+      "id": "082",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/itssmithereens\">https://twitter.com/itssmithereens</a></li>",
+      "description": "(+5) Modifier for dice rolls for the next (3) turns.",
+      "specialties": [
+        "Blue Team",
+        "PowerShell Automator",
+        "Wicked Google-fu",
+        "Problem Solving",
+        "Game Aficionado",
+        "Geek Dad"
+      ],
+      "quote": "\"Rarely is anyone thanked for the work they did to prevent the disaster that didn't happen.\" - Mikko Hypponen"
+    },
+    {
+      "name": "Marcus J. Carey",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_32.png",
+      "type": "consultant",
+      "id": "083",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/marcusjcarey\">https://twitter.com/marcusjcarey</a></li>",
+      "description": "(+2) Modifier on all dice rolls for the rest of the session.",
+      "specialties": [
+        "Security Architecture",
+        "Incident Response",
+        "Security/Attack Tool Development",
+        "Mentoring",
+        "Motivational Speaking",
+        "Building Businesses"
+      ],
+      "quote": "\"Half of my InfoSec program is working, the problem is I don't know which half.\" - Marcus J. Carey"
+    },
+    {
+      "name": "Robert M. Lee",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_33.png",
+      "type": "consultant",
+      "id": "084",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/RobertMLee\">https://twitter.com/RobertMLee</a></li>",
+      "description": "For the next (2) turns, each of the Defenders roll a D20 and use the highest number.",
+      "specialties": [
+        "ICS/OT Cybersecurity",
+        "Incident Response",
+        "Cyber Threat Intelligence",
+        "Building a Team of People Smarter Than Me",
+        "No One's Ever Wondered My Opinion"
+      ],
+      "quote": "\"The threats are worse than you realize but not as bad as you would like to imagine.\" - Robert M. Lee"
+    },
+    {
+      "name": "Chloe Messdaghi",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_34.png",
+      "type": "consultant",
+      "id": "085",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/ChloeMessdaghi\">https://twitter.com/ChloeMessdaghi</a></li>",
+      "description": "The Defenders get an extra (3) turns to complete the session.",
+      "specialties": [
+        "Strategy",
+        "Cyber Risk Communicator",
+        "Damage Control",
+        "Public Speaking",
+        "Optimistic",
+        "Always Calm During a Storm"
+      ],
+      "quote": "\"If you think you know-it-all about cybersecurity, this discipline was probably ill-explained to you.\" - Stéphane Nappo"
+    },
+    {
+      "name": "Eric Conrad",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_35.png",
+      "type": "consultant",
+      "id": "086",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/eric_conrad\">https://twitter.com/eric_conrad</a></li>",
+      "description": "(+3) Modifier for all Procedure Cards that mention DeepBlueCLI for the rest of the session.",
+      "specialties": [
+        "Threat Hunting",
+        "Incident Handling",
+        "Defensible Security Architecture",
+        "Public Speaking",
+        "Mentoring",
+        "Restoring Golden Age Arcade Machines"
+      ],
+      "quote": "\"What you call hacking: I call logging in. Credential abuse is more powerful than exploitation.\" - Anonymous"
+    },
+    {
+      "name": "John Strand",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_36.png",
+      "type": "consultant",
+      "id": "087",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/strandjs\">https://twitter.com/strandjs</a></li>",
+      "description": "The Defenders get to choose (2) additional Consultant Cards.",
+      "specialties": [
+        "Infosec Instructor and Author",
+        "Public Speaking",
+        "PowerPoint... lots and lots of PowerPoint",
+        "Heavy Equipment Operator",
+        "Loud Angry Rock n' Roll",
+        "Mountain Biking Terrifying Distances"
+      ],
+      "quote": "\"Things are only fragile till they break.\" - Dovetail Joint"
+    },
+    {
+      "name": "Joff Thyer",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_37.png",
+      "type": "consultant",
+      "id": "088",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/joff_thyer\">https://twitter.com/joff_thyer</a></li>",
+      "description": "The Incident Captain must reveal (all) the Pivot and Escalate Card(s).",
+      "specialties": [
+        "Malware Development",
+        "Red Teaming",
+        "Purple Teaming",
+        "Keyboard Player",
+        "Red Wine Appreciator",
+        "Husband and Father",
+        "Amateur Woodworker"
+      ],
+      "quote": "\"It's not a bug, it's a feature!\" - Unknown"
+    },
+    {
+      "name": "Beau Bullock",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_38.png",
+      "type": "consultant",
+      "id": "089",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/dafthack\">https://twitter.com/dafthack</a></li>",
+      "description": "The Incident Captain must reveal (all) the Initial Compromise Card(s).",
+      "specialties": [
+        "Red Teaming",
+        "Cloud",
+        "Active Directory",
+        "Blockchain Security",
+        "Guitar",
+        "Axe Throwing",
+        "Magic: The Gathering",
+        "Parenting"
+      ],
+      "quote": "\"Stop trying to impress so-called 'wizards' and just share your knowledge.\" - John Strand"
+    },
+    {
+      "name": "Richard Phung",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_39.png",
+      "type": "consultant",
+      "id": "090",
+      "details": "<li><a target=\"_blank\" href=\"https://twitter.com/bluephish\">https://twitter.com/bluephish</a></li>",
+      "description": "The Incident Captain must reveal (all) the Attack Card(s) detected by User and Entity Behavior Analytics.",
+      "specialties": [
+        "End-User Training and Awareness",
+        "Security Information and Event Management",
+        "Data Classification and Governance",
+        "Critical Thinking",
+        "Pathfinding",
+        "Bass Fishing"
+      ],
+      "quote": "\"It's always easier to hack a human than a computer.\" - Kevin Mitnick"
+    },
+    {
+      "name": "Edward Miro",
+      "image": "decks/CoreV2.2-Expansion/BNB_CARDS_EXPANSION_V1.2_40.png",
+      "type": "consultant",
+      "id": "091",
+      "details": "<li><a target=\"_blank\" href=\"c1ph0r@protonmail.com\">c1ph0r@protonmail.com</a></li>",
+      "description": "The Defenders get to nullify any Inject Card.",
+      "specialties": [
+        "Social Engineering",
+        "Physical Security",
+        "Education",
+        "Ultimate Generalist",
+        "Knows 'TheBlindHacker'",
+        "Wilderness Survival"
+      ],
+      "quote": "\"To some people, I'll always be the bad guy.\" - Kevin Mitnick"
+    }
+  ],
+  "red": "img/bb-back-init.png",
+  "yellow": "img/bb-back-pivot.png",
+  "brown": "img/bb-back-c2.png",
+  "purple": "img/bb-back-persist.png",
+  "grey": "img/bb-back-inject.png",
+  "green": "img/bb-back-consultant.png",
+  "logo": "img/antisyphon.png",
+  "addOnEnabled": "true"
+}

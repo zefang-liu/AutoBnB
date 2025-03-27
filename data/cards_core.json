@@ -534,7 +534,7 @@
       "type": "procedure",
       "id": "043",
       "details": "<li><a target=\"_blank\" href=\"https://github.com/sans-blue-team/DeepBlueCLI\">https://github.com/sans-blue-team/DeepBlueCLI</a></li>",
-      "description": "The ability to baseline a system and verify that it is operating in anormal state. By the way, this is more than simply running Task Manager and looking for evil_backdoor.exe.",
+      "description": "The ability to baseline a system and verify that it is operating in a normal state. By the way, this is more than simply running Task Manager and looking for evil_backdoor.exe.",
       "tools": "DeepBlueCLI\nSANS Analysis Cheat Sheets"
     },
     {

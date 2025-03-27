@@ -13,7 +13,11 @@ pip install -r requirements.txt
 
 Launch the simulation using the Jupyter notebook:
 ```bash
-jupyter notebook autobnb.ipynb
+jupyter notebook notebooks/autobnb_core.ipynb
+```
+or
+```bash
+jupyter notebook notebooks/autobnb_expansion.ipynb
 ```
 
 ## Paper
